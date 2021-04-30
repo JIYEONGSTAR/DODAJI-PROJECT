@@ -1,5 +1,4 @@
 import React from "react";
-
 function SelectCard(props) {
   const question = props.question;
   const answer1 = props.answer1;
