@@ -35,6 +35,7 @@ function Main(props) {
             question={nowQ}
             answer1={nowA[0].answer}
             answer2={nowA[1].answer}
+            nowIndex={nowIndex + 1}
             onClick={handleClick}
           />
         </div>

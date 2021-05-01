@@ -13,7 +13,7 @@ function Start(props) {
   return (
     <div>
       <div className="start">
-        <form method="POST">
+        <form>
           <input
             type="text"
             placeholder="이름을 입력하세요"
