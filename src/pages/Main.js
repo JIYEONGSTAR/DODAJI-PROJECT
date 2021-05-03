@@ -4,28 +4,32 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "css/Main.css";
 function Main(props) {
-  let data = props.data;
-  let [nowIndex, setNowIndex] = useState(0);
-  const [nowQ, setNowQ] = useState(data[nowIndex].q);
-  const [nowA, setNowA] = useState(data[nowIndex].a);
-  const [finish, setFinish] = useState(false);
-  const handleClick = (e) => {
-    if (nowIndex === 15) {
-      setFinish(true);
-    } else setNowIndex(nowIndex + 1);
-  };
-  useEffect(() => {
-    if (finish) {
-      setNowQ(null);
-      setNowA(null);
-    } else {
-      setNowQ(data[nowIndex].q);
-      setNowA(data[nowIndex].a);
-    }
-  });
+  console.log(props.question);
+  console.log(props.answer1);
+  console.log(props.answer2);
+  console.log(props.answer);
+  // let data = props.data;
+  // let [nowIndex, setNowIndex] = useState(0);
+  // const [nowQ, setNowQ] = useState(data[nowIndex].q);
+  // const [nowA, setNowA] = useState(data[nowIndex].a);
+  // const [finish, setFinish] = useState(false);
+  // const handleClick = (e) => {
+  //   if (nowIndex === 15) {
+  //     setFinish(true);
+  //   } else setNowIndex(nowIndex + 1);
+  // };
+  // useEffect(() => {
+  //   if (finish) {
+  //     setNowQ(null);
+  //     setNowA(null);
+  //   } else {
+  //     setNowQ(data[nowIndex].q);
+  //     setNowA(data[nowIndex].a);
+  //   }
+  // });
   return (
     <div>
-      {finish ? (
+      {/* {finish ? (
         <Link to={`/result`}>
           <button>결과보러가기</button>
         </Link>
@@ -40,12 +44,13 @@ function Main(props) {
           />
         </div>
       )}
+    </div> */}
     </div>
   );
 }
 
 const mapStateToProps = (state) => {
-  return { data: state.data };
+  return { question: state.question,answer:state.answer, answer1:state.answer1,answer2:state.answer2 };
 };
 
 const mapDispatchToProps = (dispatch) => {
