@@ -1,120 +1,182 @@
 [
   {
-    "q": "1. 당신은 현재 코딩 과제 중이다. 하지만 새벽 3시가 되어도 문제가 안풀린다. 당신의 선택은?",
-    "a": [
-      {
-        "answer": "a. 아니야 난 끝까지 할 수 있어 더 고민해보자!",
-        "type": ["try"]
-      },
-      {
-        "answer": "b. 충분히 고민했다 이제 동료들한테 물어보자!",
-        "type": ["book"]
-      }
-    ]
+    "questionId": 1,
+    "answerId": 1,
+    "answerName": "답1-1",
+    "resultId": 1
   },
   {
-    "q": "2. 당신은 과탐선택과목?",
-    "a": [
-      { "answer": "a. 화학, 물리", "type": ["try"] },
-      { "answer": "b. 생명, 지구과학", "type": ["book"] }
-    ]
+    "questionId": 1,
+    "answerId": 2,
+    "answerName": "답1-2",
+    "resultId": 2
   },
   {
-    "q": "3. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 2,
+    "answerId": 1,
+    "answerName": "답2-1",
+    "resultId": 1
   },
   {
-    "q": "4. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 2,
+    "answerId": 2,
+    "answerName": "답2-2",
+    "resultId": 2
   },
   {
-    "q": "5. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 3,
+    "answerId": 1,
+    "answerName": "답3-1",
+    "resultId": 1
   },
   {
-    "q": "6. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 3,
+    "answerId": 2,
+    "answerName": "답3-2",
+    "resultId": 2
   },
   {
-    "q": "7. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 4,
+    "answerId": 1,
+    "answerName": "답4-1",
+    "resultId": 1
   },
   {
-    "q": "8. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 4,
+    "answerId": 2,
+    "answerName": "답4-2",
+    "resultId": 2
   },
   {
-    "q": "9. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 5,
+    "answerId": 1,
+    "answerName": "답5-1",
+    "resultId": 1
   },
   {
-    "q": "10. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 5,
+    "answerId": 2,
+    "answerName": "답5-2",
+    "resultId": 2
   },
   {
-    "q": "11. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 6,
+    "answerId": 1,
+    "answerName": "답6-1",
+    "resultId": 1
   },
   {
-    "q": "12. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 6,
+    "answerId": 2,
+    "answerName": "답6-2",
+    "resultId": 2
   },
   {
-    "q": "13. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 7,
+    "answerId": 1,
+    "answerName": "답7-1",
+    "resultId": 1
   },
   {
-    "q": "14. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 7,
+    "answerId": 2,
+    "answerName": "답7-2",
+    "resultId": 2
   },
   {
-    "q": "15. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 8,
+    "answerId": 1,
+    "answerName": "답8-1",
+    "resultId": 3
   },
   {
-    "q": "16. 당신은 공부할 때 무엇을 더 참고하나요?",
-    "a": [
-      { "answer": "a. 영상", "type": ["try"] },
-      { "answer": "b. 책", "type": ["book"] }
-    ]
+    "questionId": 8,
+    "answerId": 2,
+    "answerName": "답8-2",
+    "resultId": 4
+  },
+  {
+    "questionId": 9,
+    "answerId": 1,
+    "answerName": "답9-1",
+    "resultId": 3
+  },
+  {
+    "questionId": 9,
+    "answerId": 2,
+    "answerName": "답9-2",
+    "resultId": 4
+  },
+  {
+    "questionId": 10,
+    "answerId": 1,
+    "answerName": "답10-1",
+    "resultId": 3
+  },
+  {
+    "questionId": 10,
+    "answerId": 2,
+    "answerName": "답10-2",
+    "resultId": 4
+  },
+  {
+    "questionId": 11,
+    "answerId": 1,
+    "answerName": "답11-1",
+    "resultId": 5
+  },
+  {
+    "questionId": 11,
+    "answerId": 2,
+    "answerName": "답11-2",
+    "resultId": 6
+  },
+  {
+    "questionId": 12,
+    "answerId": 1,
+    "answerName": "답12-1",
+    "resultId": 5
+  },
+  {
+    "questionId": 12,
+    "answerId": 2,
+    "answerName": "답12-2",
+    "resultId": 6
+  },
+  {
+    "questionId": 13,
+    "answerId": 1,
+    "answerName": "답13-1",
+    "resultId": 5
+  },
+  {
+    "questionId": 13,
+    "answerId": 2,
+    "answerName": "답13-2",
+    "resultId": 6
+  },
+  {
+    "questionId": 14,
+    "answerId": 1,
+    "answerName": "답14-1",
+    "resultId": 5
+  },
+  {
+    "questionId": 14,
+    "answerId": 2,
+    "answerName": "답14-2",
+    "resultId": 6
+  },
+  {
+    "questionId": 15,
+    "answerId": 1,
+    "answerName": "답15-1",
+    "resultId": 5
+  },
+  {
+    "questionId": 15,
+    "answerId": 2,
+    "answerName": "답15-2",
+    "resultId": 6
   }
 ]

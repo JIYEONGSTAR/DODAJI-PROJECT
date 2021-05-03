@@ -4,32 +4,40 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "css/Main.css";
 function Main(props) {
-  console.log(props.question);
-  console.log(props.answer1);
-  console.log(props.answer2);
-  console.log(props.answer);
-  // let data = props.data;
-  // let [nowIndex, setNowIndex] = useState(0);
-  // const [nowQ, setNowQ] = useState(data[nowIndex].q);
-  // const [nowA, setNowA] = useState(data[nowIndex].a);
-  // const [finish, setFinish] = useState(false);
-  // const handleClick = (e) => {
-  //   if (nowIndex === 15) {
-  //     setFinish(true);
-  //   } else setNowIndex(nowIndex + 1);
-  // };
-  // useEffect(() => {
-  //   if (finish) {
-  //     setNowQ(null);
-  //     setNowA(null);
-  //   } else {
-  //     setNowQ(data[nowIndex].q);
-  //     setNowA(data[nowIndex].a);
-  //   }
-  // });
+  // console.log(props.question);
+  // console.log(props.answer1);
+  // console.log(props.answer2);
+  // console.log(props.answer);
+  const question = props.question;
+  const answer1 = props.answer1;
+  const answer2 = props.answer2;
+  let [nowIndex, setNowIndex] = useState(0);
+  const [nowQ, setNowQ] = useState(question[nowIndex].questionName);
+  const [nowA1, setNowA1] = useState(answer1[nowIndex].answerName);
+  const [nowA2, setNowA2] = useState(answer2[nowIndex].answerName);
+  const [finish, setFinish] = useState(false);
+  const handleClick = (e) => {
+    if (nowIndex === 14) {
+      setFinish(true);
+    } else setNowIndex(nowIndex + 1);
+  };
+  const handleBack = (e) => {
+    setNowIndex(nowIndex - 1);
+  };
+  useEffect(() => {
+    if (finish) {
+      setNowQ(null);
+      setNowA1(null);
+      setNowA2(null);
+    } else {
+      setNowQ(question[nowIndex].questionName);
+      setNowA1(answer1[nowIndex].answerName);
+      setNowA2(answer2[nowIndex].answerName);
+    }
+  });
   return (
     <div>
-      {/* {finish ? (
+      {finish ? (
         <Link to={`/result`}>
           <button>결과보러가기</button>
         </Link>
@@ -37,20 +45,25 @@ function Main(props) {
         <div>
           <SelectCard
             question={nowQ}
-            answer1={nowA[0].answer}
-            answer2={nowA[1].answer}
+            answer1={nowA1}
+            answer2={nowA2}
             nowIndex={nowIndex + 1}
             onClick={handleClick}
+            onBack={handleBack}
           />
         </div>
       )}
-    </div> */}
     </div>
   );
 }
 
 const mapStateToProps = (state) => {
-  return { question: state.question,answer:state.answer, answer1:state.answer1,answer2:state.answer2 };
+  return {
+    question: state.question,
+    answer: state.answer.answerId,
+    answer1: state.answer1,
+    answer2: state.answer2,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {

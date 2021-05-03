@@ -15,7 +15,7 @@ function SelectCard(props) {
       borderRadius: 3,
       boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
       color: "black",
-      width: 100 - (100 / 16) * index + "%",
+      width: 100 - (100 / 15) * index + "%",
       height: "5px",
     },
   });
@@ -23,7 +23,7 @@ function SelectCard(props) {
   const classes = useStyles();
   return (
     <div className="card">
-      <div className={classes.root}>{index}/16</div>
+      <div className={classes.root}>{index}/15</div>
       <span>{question}</span>
       <div>
         <button onClick={props.onClick} value="answer1">
@@ -32,6 +32,9 @@ function SelectCard(props) {
         <button onClick={props.onClick} value="answer2">
           {answer2}
         </button>
+      </div>
+      <div>
+        <button onClick={props.onBack}>뒤로가기</button>
       </div>
     </div>
   );
