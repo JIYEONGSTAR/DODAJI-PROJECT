@@ -4,10 +4,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "css/Main.css";
 function Main(props) {
-  // console.log(props.question);
-  // console.log(props.answer1);
-  // console.log(props.answer2);
-  // console.log(props.answer);
   const question = props.question;
   const answer1 = props.answer1;
   const answer2 = props.answer2;
@@ -15,14 +11,23 @@ function Main(props) {
   const [nowQ, setNowQ] = useState(question[nowIndex].questionName);
   const [nowA1, setNowA1] = useState(answer1[nowIndex].answerName);
   const [nowA2, setNowA2] = useState(answer2[nowIndex].answerName);
+
   const [finish, setFinish] = useState(false);
   const handleClick = (e) => {
+    const result =
+      e === "1" ? answer1[nowIndex].resultId : answer2[nowIndex].resultId;
+    console.log(result);
+    props.handleAnswer(result);
     if (nowIndex === 14) {
       setFinish(true);
     } else setNowIndex(nowIndex + 1);
   };
-  const handleBack = (e) => {
-    setNowIndex(nowIndex - 1);
+
+  // const handleBack = (e) => {
+  //   setNowIndex(nowIndex - 1);
+  // };
+  const handleResult = () => {
+    props.handleResult();
   };
   useEffect(() => {
     if (finish) {
@@ -39,7 +44,7 @@ function Main(props) {
     <div>
       {finish ? (
         <Link to={`/result`}>
-          <button>결과보러가기</button>
+          <button onClick={handleResult}>결과보러가기</button>
         </Link>
       ) : (
         <div>
@@ -49,7 +54,7 @@ function Main(props) {
             answer2={nowA2}
             nowIndex={nowIndex + 1}
             onClick={handleClick}
-            onBack={handleBack}
+            // onBack={handleBack}
           />
         </div>
       )}
@@ -67,6 +72,12 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return { handleAnswer: (id) => dispatch({ type: "handleAnswer", id: id }) };
+  return {
+    handleAnswer: (result) =>
+      dispatch({ type: "handleAnswer", result: result }),
+    handleResult: () => {
+      dispatch({ type: "handleResult" });
+    },
+  };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

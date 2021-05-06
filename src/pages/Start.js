@@ -10,6 +10,11 @@ function Start(props) {
   const handleClick = () => {
     props.handleName(name);
   };
+  // const handleKeyPress = (e) => {
+  //   if (e.key === "Enter") {
+  //     handleClick();
+  //   }
+  // };
   return (
     <div>
       <div className="start">
@@ -18,6 +23,7 @@ function Start(props) {
             type="text"
             placeholder="이름을 입력하세요"
             onChange={handleName}
+            // onKeyPress={handleKeyPress}
           ></input>
         </form>
         <Link to="/main">
