@@ -2,11 +2,16 @@ import React from "react";
 import { connect } from "react-redux";
 import "css/Result.css";
 function Result(props) {
-  return <div className="result">{props.name}의 결과는?</div>;
+  return (
+    <>
+      <div className="result">{props.name}의 결과는?</div>
+      {props.finalResult}
+    </>
+  );
 }
 
 const mapStateToProps = (state) => {
-  return { name: state.name };
+  return { name: state.name, finalResult: state.finalResult };
 };
 
 // const mapDispatchToProps = (dispatch) => {

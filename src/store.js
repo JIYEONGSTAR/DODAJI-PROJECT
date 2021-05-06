@@ -23,33 +23,55 @@ const getAnswer = () => {
 
 function reducer(state, action) {
   if (state === undefined) {
-    let mockData = _data.concat();
+    // let mockData = _data.concat();
     return {
       name: "",
-      selected_answer: 0,
-      data: mockData,
+      // data: mockData,
       question: getQuestion(),
       answer: getAnswer(),
       answer1: [],
       answer2: [],
+      result: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 },
+      finalResult: "",
     };
   }
-  let answer = [...state.answer];
-
-  let answer1 = answer.filter((e) => e.answerId === 1);
-  let answer2 = state.data.filter((e) => e.answerId === 2);
+  let newName = state.name;
+  let newAnswer = [...state.answer];
+  let newAnswer1 = newAnswer.filter((e) => e.answerId === 1);
+  let newAnswer2 = newAnswer.filter((e) => e.answerId === 2);
+  let newResultId = action.result;
+  let newResult = { ...state.result };
+  let newFinalResult = state.finalResult;
 
   switch (action.type) {
     case "setName":
+      newName = action.name;
       break;
+    case "handleAnswer":
+      newResult[newResultId] += 1;
+      break;
+    case "handleResult":
+      newFinalResult = newFinalResult.concat(
+        newResult[1] > newResult[2] ? "1" : "2"
+      );
+      newFinalResult = newFinalResult.concat(
+        newResult[3] > newResult[4] ? "3" : "4"
+      );
+      newFinalResult = newFinalResult.concat(
+        newResult[5] > newResult[6] ? "5" : "6"
+      );
+      break;
+
     default:
       break;
   }
   return {
     ...state,
-    name: action.name,
-    answer1: answer1,
-    answer2: answer2,
+    name: newName,
+    answer1: newAnswer1,
+    answer2: newAnswer2,
+    result: newResult,
+    finalResult: newFinalResult,
   };
 }
 export default createStore(

@@ -19,23 +19,25 @@ function SelectCard(props) {
       height: "5px",
     },
   });
-
+  const onClick = (e) => {
+    props.onClick(e.target.value);
+  };
   const classes = useStyles();
   return (
     <div className="card">
       <div className={classes.root}>{index}/15</div>
       <span>{question}</span>
       <div>
-        <button onClick={props.onClick} value="answer1">
+        <button onClick={onClick} value="1">
           {answer1}
         </button>
-        <button onClick={props.onClick} value="answer2">
+        <button onClick={onClick} value="2">
           {answer2}
         </button>
       </div>
-      <div>
+      {/* <div>
         <button onClick={props.onBack}>뒤로가기</button>
-      </div>
+      </div> */}
     </div>
   );
 }
