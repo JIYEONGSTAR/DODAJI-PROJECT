@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
 
 function SelectCard(props) {
   const question = props.question;
@@ -10,10 +9,10 @@ function SelectCard(props) {
   const useStyles = makeStyles({
     root: {
       padding: "20px",
-      background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+      background: "#FFDFDE",
       border: 0,
       borderRadius: 3,
-      boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+      boxShadow: "0 3px 5px 2px #FFDFDE",
       color: "black",
       width: 100 - (100 / 15) * index + "%",
       height: "5px",
@@ -26,18 +25,20 @@ function SelectCard(props) {
   return (
     <div className="card">
       <div className={classes.root}>{index}/15</div>
-      <span>{question}</span>
-      <div>
-        <button onClick={onClick} value="1">
+      <div className="questionBox">{question}</div>
+      <div className="answerBox">
+        <button className="answerBtn" onClick={onClick} value="1">
           {answer1}
         </button>
-        <button onClick={onClick} value="2">
+        <button className="answerBtn" onClick={onClick} value="2">
           {answer2}
         </button>
       </div>
-      {/* <div>
-        <button onClick={props.onBack}>뒤로가기</button>
-      </div> */}
+      <div className="backBox">
+        <button className="backBtn" onClick={props.onBack}>
+          <i class="fas fa-chevron-circle-left"></i>
+        </button>
+      </div>
     </div>
   );
 }

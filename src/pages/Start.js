@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "css/Start.css";
 function Start(props) {
@@ -8,13 +7,23 @@ function Start(props) {
     setName(e.target.value);
   };
   const handleClick = () => {
-    props.handleName(name);
+    //빈 문자열일때는 알림설정하고 아니면 main으로 넘어가기
+    switch (name) {
+      case "":
+        alert("이름을 입력하세요");
+        break;
+      default:
+        props.handleName(name);
+        props.history.push("/main");
+        break;
+    }
   };
-  // const handleKeyPress = (e) => {
-  //   if (e.key === "Enter") {
-  //     handleClick();
-  //   }
-  // };
+  const handleKeyPress = (e) => {
+    //엔터키로 입력하기
+    if (e.key === "Enter") {
+      handleClick();
+    }
+  };
   return (
     <div>
       <div className="start">
@@ -23,12 +32,10 @@ function Start(props) {
             type="text"
             placeholder="이름을 입력하세요"
             onChange={handleName}
-            // onKeyPress={handleKeyPress}
+            onKeyPress={handleKeyPress}
           ></input>
         </form>
-        <Link to="/main">
-          <button onClick={handleClick}>시작하기</button>
-        </Link>
+        <button onClick={handleClick}>시작하기</button>
       </div>
     </div>
   );

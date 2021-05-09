@@ -3,19 +3,23 @@ import SelectCard from "components/cards/SelectCard";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "css/Main.css";
+
 function Main(props) {
   const question = props.question;
   const answer1 = props.answer1;
   const answer2 = props.answer2;
-  let [nowIndex, setNowIndex] = useState(0);
+  const [nowIndex, setNowIndex] = useState(0);
   const [nowQ, setNowQ] = useState(question[nowIndex].questionName);
   const [nowA1, setNowA1] = useState(answer1[nowIndex].answerName);
   const [nowA2, setNowA2] = useState(answer2[nowIndex].answerName);
-
+  const [preresult, setPreresult] = useState();
   const [finish, setFinish] = useState(false);
   const handleClick = (e) => {
-    const result =
+    let result =
       e === "1" ? answer1[nowIndex].resultId : answer2[nowIndex].resultId;
+    setPreresult(
+      e === "1" ? answer1[nowIndex].resultId : answer2[nowIndex].resultId
+    );
     console.log(result);
     props.handleAnswer(result);
     if (nowIndex === 14) {
@@ -23,9 +27,17 @@ function Main(props) {
     } else setNowIndex(nowIndex + 1);
   };
 
-  // const handleBack = (e) => {
-  //   setNowIndex(nowIndex - 1);
-  // };
+  const handleBack = (e) => {
+    switch (nowIndex) {
+      case 0:
+        alert("첫번째 문항입니다.");
+        break;
+      default:
+        props.handleBack(preresult);
+        setNowIndex(nowIndex - 1);
+        break;
+    }
+  };
   const handleResult = () => {
     props.handleResult();
   };
@@ -54,7 +66,7 @@ function Main(props) {
             answer2={nowA2}
             nowIndex={nowIndex + 1}
             onClick={handleClick}
-            // onBack={handleBack}
+            onBack={handleBack}
           />
         </div>
       )}
@@ -77,6 +89,9 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({ type: "handleAnswer", result: result }),
     handleResult: () => {
       dispatch({ type: "handleResult" });
+    },
+    handleBack: (result) => {
+      dispatch({ type: "handleBack", result: result });
     },
   };
 };

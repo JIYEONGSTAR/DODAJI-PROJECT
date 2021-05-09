@@ -61,7 +61,9 @@ function reducer(state, action) {
         newResult[5] > newResult[6] ? "5" : "6"
       );
       break;
-
+    case "handleBack":
+      newResult[newResultId] -= 1;
+      break;
     default:
       break;
   }

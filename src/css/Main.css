@@ -3,6 +3,40 @@
   padding: 20px;
   width: 80%;
   border: 1px solid gray;
+  background-color: #fcf6f5;
   box-shadow: 5px 5px 5px #aaa;
   transition: background-color 1s, height 1s;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+
+.answerBtn {
+  all: unset;
+  width: 30%;
+  height: 30px;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 20px;
+  background-color: #6a7ba2;
+  box-shadow: 0 3px 5px 2px #6a7ba2;
+}
+.answerBox {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+.questionBox {
+  padding: 20px;
+  width: 100%;
+}
+.backBox {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+}
+.backBtn {
+  all: unset;
 }
