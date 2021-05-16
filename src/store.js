@@ -20,7 +20,15 @@ const getAnswer = () => {
   });
   return answers;
 };
-
+const getType = () => {
+  let questions = [];
+  axios.get("type/all").then((result) => {
+    result.data.forEach((item) => {
+      questions.push(item);
+    });
+  });
+  return questions;
+};
 function reducer(state, action) {
   if (state === undefined) {
     // let mockData = _data.concat();
@@ -29,9 +37,10 @@ function reducer(state, action) {
       // data: mockData,
       question: getQuestion(),
       answer: getAnswer(),
+      type: getType(),
       answer1: [],
       answer2: [],
-      result: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 },
+
       finalResult: "",
     };
   }
@@ -39,30 +48,30 @@ function reducer(state, action) {
   let newAnswer = [...state.answer];
   let newAnswer1 = newAnswer.filter((e) => e.answerId === 1);
   let newAnswer2 = newAnswer.filter((e) => e.answerId === 2);
-  let newResultId = action.result;
   let newResult = { ...state.result };
   let newFinalResult = state.finalResult;
-
+  let newType = [...state.type];
   switch (action.type) {
     case "setName":
       newName = action.name;
       break;
     case "handleAnswer":
-      newResult[newResultId] += 1;
+      parseInt(action.value) % 2 !== 0
+        ? (newType[action.typeId - 1].count += 1)
+        : (newType[action.typeId - 1].count -= 1);
       break;
     case "handleResult":
       newFinalResult = newFinalResult.concat(
-        newResult[1] > newResult[2] ? "1" : "2"
-      );
-      newFinalResult = newFinalResult.concat(
-        newResult[3] > newResult[4] ? "3" : "4"
-      );
-      newFinalResult = newFinalResult.concat(
-        newResult[5] > newResult[6] ? "5" : "6"
+        newType[0].count > 0 ? "1" : "2",
+        newType[1].count > 0 ? "3" : "4",
+        newType[2].count > 0 ? "5" : "6"
       );
       break;
     case "handleBack":
-      newResult[newResultId] -= 1;
+      // newResult[newResultId] -= 1;
+      parseInt(action.prevalue) % 2 !== 0
+        ? (newType[action.typeId - 1].count -= 1)
+        : (newType[action.typeId - 1].count += 1);
       break;
     default:
       break;
@@ -73,6 +82,7 @@ function reducer(state, action) {
     answer1: newAnswer1,
     answer2: newAnswer2,
     result: newResult,
+    type: newType,
     finalResult: newFinalResult,
   };
 }

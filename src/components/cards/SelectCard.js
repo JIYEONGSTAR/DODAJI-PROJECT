@@ -6,6 +6,7 @@ function SelectCard(props) {
   const answer1 = props.answer1;
   const answer2 = props.answer2;
   const index = props.nowIndex;
+
   const useStyles = makeStyles({
     root: {
       padding: "20px",
@@ -19,23 +20,35 @@ function SelectCard(props) {
     },
   });
   const onClick = (e) => {
-    props.onClick(e.target.value);
+    props.onClick(e.target.value, question.typeId);
+  };
+  const onBack = () => {
+    props.onBack(question.typeId);
   };
   const classes = useStyles();
   return (
     <div className="card">
+      <h1>새로운셀렉트</h1>
       <div className={classes.root}>{index}/15</div>
-      <div className="questionBox">{question}</div>
+      <div className="questionBox">{question.questionName}</div>
       <div className="answerBox">
-        <button className="answerBtn" onClick={onClick} value="1">
-          {answer1}
+        <button
+          className="answerBtn"
+          onClick={onClick}
+          value={answer1.resultId}
+        >
+          {answer1.answerName}
         </button>
-        <button className="answerBtn" onClick={onClick} value="2">
-          {answer2}
+        <button
+          className="answerBtn"
+          onClick={onClick}
+          value={answer2.resultId}
+        >
+          {answer2.answerName}
         </button>
       </div>
       <div className="backBox">
-        <button className="backBtn" onClick={props.onBack}>
+        <button className="backBtn" onClick={onBack}>
           <i class="fas fa-chevron-circle-left"></i>
         </button>
       </div>
