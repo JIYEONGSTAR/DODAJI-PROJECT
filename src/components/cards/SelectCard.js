@@ -10,10 +10,10 @@ function SelectCard(props) {
   const useStyles = makeStyles({
     root: {
       padding: "20px",
-      background: "#FFDFDE",
+      background: "white",
       border: 0,
       borderRadius: 3,
-      boxShadow: "0 3px 5px 2px #FFDFDE",
+      boxShadow: "0 3px 5px 2px white",
       color: "black",
       width: 100 - (100 / 15) * index + "%",
       height: "5px",
@@ -28,8 +28,9 @@ function SelectCard(props) {
   const classes = useStyles();
   return (
     <div className="card">
-      <h1>새로운셀렉트</h1>
-      <div className={classes.root}>{index}/15</div>
+      <div className="statusBox">
+        <div className={classes.root}>{index}/15</div>
+      </div>
       <div className="questionBox">{question.questionName}</div>
       <div className="answerBox">
         <button

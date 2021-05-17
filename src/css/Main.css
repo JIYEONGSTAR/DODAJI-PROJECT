@@ -3,7 +3,7 @@
   padding: 20px;
   width: 80%;
   border: 1px solid gray;
-  background-color: #fcf6f5;
+  background-color: #f4efea;
   box-shadow: 5px 5px 5px #aaa;
   transition: background-color 1s, height 1s;
   display: flex;
@@ -11,7 +11,12 @@
   text-align: center;
   justify-content: center;
 }
-
+.statusBox {
+  width: 100%;
+  display: flex;
+  text-align: left;
+  justify-content: left;
+}
 .answerBtn {
   all: unset;
   width: 30%;
@@ -19,8 +24,8 @@
   padding: 10px;
   margin: 20px;
   border-radius: 20px;
-  background-color: #6a7ba2;
-  box-shadow: 0 3px 5px 2px #6a7ba2;
+  background-color: #9a161f;
+  box-shadow: 0 3px 5px 2px #9a161f;
 }
 .answerBox {
   display: flex;

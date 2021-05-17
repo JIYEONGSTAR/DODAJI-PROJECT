@@ -1,5 +1,4 @@
 import { createStore } from "redux";
-import _data from "data.json";
 import axios from "axios/axios";
 
 const getQuestion = () => {
@@ -29,18 +28,20 @@ const getType = () => {
   });
   return questions;
 };
+// const postresult = () => {
+//   let finalResult = reducer.finalResult;
+//   axios.post("", finalResult).then(result);
+// };
+
 function reducer(state, action) {
   if (state === undefined) {
-    // let mockData = _data.concat();
     return {
       name: "",
-      // data: mockData,
       question: getQuestion(),
       answer: getAnswer(),
       type: getType(),
       answer1: [],
       answer2: [],
-
       finalResult: "",
     };
   }
@@ -68,7 +69,6 @@ function reducer(state, action) {
       );
       break;
     case "handleBack":
-      // newResult[newResultId] -= 1;
       parseInt(action.prevalue) % 2 !== 0
         ? (newType[action.typeId - 1].count -= 1)
         : (newType[action.typeId - 1].count += 1);

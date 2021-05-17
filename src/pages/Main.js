@@ -50,9 +50,9 @@ function Main(props) {
   });
   return (
     <div>
-      <h1>새로운메인</h1>
       {finish ? (
         <Link to={`/result`}>
+          {/* <Link to={`/result/:${props.finalResult}`}> */}
           <button onClick={handleResult}>결과보러가기</button>
         </Link>
       ) : (
@@ -76,6 +76,7 @@ const mapStateToProps = (state) => {
     question: state.question,
     answer1: state.answer1,
     answer2: state.answer2,
+    finalResult: state.finalResult,
   };
 };
 
