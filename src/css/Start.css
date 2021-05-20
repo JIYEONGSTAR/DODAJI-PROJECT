@@ -1,8 +1,23 @@
 .start {
+  margin: auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.box {
+  height: 460px;
+  width: 225px;
+  text-align: center;
+  justify-content: center;
   margin: 20px auto;
   padding: 20px;
   width: 300px;
   border: 1px solid gray;
   box-shadow: 5px 5px 5px #aaa;
   transition: background-color 1s, height 1s;
+}
+.img {
+  width: 225px;
+  height: 300px;
 }

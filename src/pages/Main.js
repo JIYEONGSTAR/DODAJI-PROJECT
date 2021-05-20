@@ -49,23 +49,21 @@ function Main(props) {
     }
   });
   return (
-    <div>
+    <div className="main">
       {finish ? (
         <Link to={`/result`}>
           {/* <Link to={`/result/:${props.finalResult}`}> */}
           <button onClick={handleResult}>결과보러가기</button>
         </Link>
       ) : (
-        <div>
-          <SelectCard
-            question={nowQ}
-            answer1={nowA1}
-            answer2={nowA2}
-            nowIndex={nowIndex + 1}
-            onClick={handleClick}
-            onBack={handleBack}
-          />
-        </div>
+        <SelectCard
+          question={nowQ}
+          answer1={nowA1}
+          answer2={nowA2}
+          nowIndex={nowIndex + 1}
+          onClick={handleClick}
+          onBack={handleBack}
+        />
       )}
     </div>
   );

@@ -21,11 +21,12 @@
   all: unset;
   width: 30%;
   height: 30px;
-  padding: 10px;
-  margin: 20px;
+  padding: 5px;
+  margin: 15px;
   border-radius: 20px;
   background-color: #9a161f;
-  box-shadow: 0 3px 5px 2px #9a161f;
+  box-shadow: 0 2px 2px 1px #9a161f;
+  color: white;
 }
 .answerBox {
   display: flex;
@@ -34,8 +35,10 @@
   width: 100%;
 }
 .questionBox {
-  padding: 20px;
+  margin-top: 20px;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .backBox {
   width: 100%;

@@ -25,7 +25,10 @@ function Start(props) {
     }
   };
   return (
-    <div>
+    <div className="box">
+      <h1>도다지프로젝트</h1>
+      <p>개발 유형 검사</p>
+
       <div className="start">
         <form>
           <input
