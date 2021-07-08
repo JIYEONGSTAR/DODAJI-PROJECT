@@ -13,7 +13,6 @@ function App() {
           <Route exact path="/" component={Start} />
           <Route path="/main" component={Main} />
           <Route path="/result" component={Result} />
-          {/* <Route path="/result/:result" component={Result} /> */}
         </Switch>
       </Router>
     </>

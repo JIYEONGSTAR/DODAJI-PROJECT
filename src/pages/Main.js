@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import SelectCard from "components/cards/SelectCard";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "css/Main.css";
+
+import axios from "axios";
 
 function Main(props) {
   const question = props.question;
@@ -14,12 +17,16 @@ function Main(props) {
   const [nowA2, setNowA2] = useState(answer2[nowIndex]);
   const [prevalue, setPrevalue] = useState();
   const [finish, setFinish] = useState(false);
+
+  const history = useHistory();
+
   const handleClick = (value, typeId) => {
     props.handleAnswer(value, typeId);
     setPrevalue(value);
 
     if (nowIndex === 14) {
       setFinish(true);
+      handleResult();
     } else setNowIndex(nowIndex + 1);
   };
 
@@ -37,6 +44,17 @@ function Main(props) {
   const handleResult = () => {
     props.handleResult();
   };
+
+  const onClickEnd = async () => {
+    const response = await axios({
+      method: "PUT",
+      url: `http://localhost:8080/personResult/${props.name}/${props.finalResult}`,
+      // url: `http://localhost:8080/personResult/doong/135`,
+    });
+
+    history.push("/result");
+  };
+
   useEffect(() => {
     if (finish) {
       setNowQ(null);
@@ -48,14 +66,17 @@ function Main(props) {
       setNowA2(answer2[nowIndex]);
     }
   });
+
   return (
     <div className="main">
       {finish ? (
-        <Link to={`/result`}>
-          {/* <Link to={`/result/:${props.finalResult}`}> */}
-          <button onClick={handleResult}>결과보러가기</button>
-        </Link>
+        // <Link to={`/result`}>
+
+        // <Link to={`/result/${props.finalResult}`}>
+        <button onClick={onClickEnd}>결과보러가기</button>
       ) : (
+        // <button>결과보러가기</button>
+        // </Link>
         <SelectCard
           question={nowQ}
           answer1={nowA1}
@@ -75,6 +96,7 @@ const mapStateToProps = (state) => {
     answer1: state.answer1,
     answer2: state.answer2,
     finalResult: state.finalResult,
+    name: state.name,
   };
 };
 

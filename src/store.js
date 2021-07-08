@@ -4,12 +4,16 @@ import axios from "axios/axios";
 const getQuestion = () => {
   let questions = [];
   axios.get("question/all").then((result) => {
+    // console.log(result);
     result.data.forEach((item) => {
       questions.push(item);
     });
   });
+
+  // console.log(questions);
   return questions;
 };
+
 const getAnswer = () => {
   let answers = [];
   axios.get("answer/all").then((result) => {
@@ -28,10 +32,14 @@ const getType = () => {
   });
   return questions;
 };
-// const postresult = () => {
-//   let finalResult = reducer.finalResult;
-//   axios.post("", finalResult).then(result);
-// };
+
+const postResult = () => {
+  let finalResult = reducer.finalResult;
+  axios
+    .post("주소", finalResult)
+    .then((response) => this.reload())
+    .catch((error) => console.log(error));
+};
 
 function reducer(state, action) {
   if (state === undefined) {
@@ -67,12 +75,14 @@ function reducer(state, action) {
         newType[1].count > 0 ? "3" : "4",
         newType[2].count > 0 ? "5" : "6"
       );
+      // postResult();
       break;
     case "handleBack":
       parseInt(action.prevalue) % 2 !== 0
         ? (newType[action.typeId - 1].count -= 1)
         : (newType[action.typeId - 1].count += 1);
       break;
+
     default:
       break;
   }

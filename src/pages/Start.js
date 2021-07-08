@@ -3,9 +3,12 @@ import { connect } from "react-redux";
 import "css/Start.css";
 function Start(props) {
   const [name, setName] = useState("");
+
   const handleName = (e) => {
     setName(e.target.value);
+    // debouncing, throttling
   };
+
   const handleClick = () => {
     //빈 문자열일때는 알림설정하고 아니면 main으로 넘어가기
     switch (name) {
@@ -18,12 +21,14 @@ function Start(props) {
         break;
     }
   };
+
   const handleKeyPress = (e) => {
     //엔터키로 입력하기
     if (e.key === "Enter") {
       handleClick();
     }
   };
+
   return (
     <div className="box">
       <h1>도다지프로젝트</h1>
