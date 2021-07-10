@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import "css/Start.css";
+import { Link } from "react-router-dom";
 function Start(props) {
   const [name, setName] = useState("");
 
@@ -44,6 +45,11 @@ function Start(props) {
           ></input>
         </form>
         <button onClick={handleClick}>시작하기</button>
+      </div>
+      <div>
+        <Link to={`/others`}>
+          <button>다른사람결과보러가기</button>
+        </Link>
       </div>
     </div>
   );
