@@ -22,7 +22,10 @@ function Start(props) {
         break;
     }
   };
-
+  const handleOthers = () => {
+    props.handleOthers();
+    props.history.push("/others");
+  };
   const handleKeyPress = (e) => {
     //엔터키로 입력하기
     if (e.key === "Enter") {
@@ -46,16 +49,19 @@ function Start(props) {
         </form>
         <button onClick={handleClick}>시작하기</button>
       </div>
-      <div>
-        <Link to={`/others`}>
-          <button>다른사람결과보러가기</button>
-        </Link>
+      <div className="others">
+        {/* <Link to={`/others`}> */}
+        <button onClick={handleOthers}>다른사람결과보러가기</button>
+        {/* </Link> */}
       </div>
     </div>
   );
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { handleName: (name) => dispatch({ type: "setName", name: name }) };
+  return (
+    { handleName: (name) => dispatch({ type: "setName", name: name }) },
+    { handleOthers: () => dispatch({ type: "others" }) }
+  );
 };
 export default connect(null, mapDispatchToProps)(Start);

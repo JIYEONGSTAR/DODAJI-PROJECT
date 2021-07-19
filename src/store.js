@@ -32,15 +32,24 @@ const getType = () => {
   });
   return questions;
 };
-
-const postResult = () => {
-  let finalResult = reducer.finalResult;
-  axios
-    .post("주소", finalResult)
-    .then((response) => this.reload())
-    .catch((error) => console.log(error));
+const getResult = () => {
+  let realResult = [];
+  axios.get("realresult/all").then((result) => {
+    result.data.forEach((item) => {
+      realResult.push(item);
+    });
+  });
+  return realResult;
 };
-
+const getOthers = () => {
+  let others = [];
+  axios.get("personResult/all").then((result) => {
+    result.data.forEach((item) => {
+      others.push(item);
+    });
+  });
+  return others;
+};
 function reducer(state, action) {
   if (state === undefined) {
     return {
@@ -48,9 +57,11 @@ function reducer(state, action) {
       question: getQuestion(),
       answer: getAnswer(),
       type: getType(),
+      realResult: getResult(),
       answer1: [],
       answer2: [],
       finalResult: "",
+      others: getOthers(),
     };
   }
   let newName = state.name;
@@ -61,6 +72,8 @@ function reducer(state, action) {
   let newFinalResult = state.finalResult;
   let newType = [...state.type];
   switch (action.type) {
+    case "others":
+      break;
     case "setName":
       newName = action.name;
       break;
@@ -82,7 +95,6 @@ function reducer(state, action) {
         ? (newType[action.typeId - 1].count -= 1)
         : (newType[action.typeId - 1].count += 1);
       break;
-
     default:
       break;
   }
