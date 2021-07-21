@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { AiFillLeftCircle } from "react-icons/ai";
+import Button from "components/Button";
 function SelectCard(props) {
   const question = props.question;
   const answer1 = props.answer1;
@@ -33,24 +34,18 @@ function SelectCard(props) {
       </div>
       <div className="questionBox">{question.questionName}</div>
       <div className="answerBox">
-        <button
-          className="answerBtn"
-          onClick={onClick}
-          value={answer1.resultId}
-        >
-          {answer1.answerName}
-        </button>
-        <button
-          className="answerBtn"
-          onClick={onClick}
-          value={answer2.resultId}
-        >
-          {answer2.answerName}
-        </button>
+        <div onClick={onClick}>
+          <Button value={answer1.resultId} sentence={answer1.answerName} />
+        </div>
+        <div onClick={onClick}>
+          <Button value={answer2.resultId} sentence={answer2.answerName} />
+        </div>
       </div>
       <div className="backBox">
         <button className="backBtn" onClick={onBack}>
-          <i class="fas fa-chevron-circle-left"></i>
+          <div>
+            <AiFillLeftCircle />
+          </div>
         </button>
       </div>
     </div>

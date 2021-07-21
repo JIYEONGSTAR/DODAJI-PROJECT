@@ -4,8 +4,8 @@ import SelectCard from "components/cards/SelectCard";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "css/Main.css";
-
 import axios from "axios";
+import Button from "../components/Button";
 
 function Main(props) {
   const question = props.question;
@@ -70,13 +70,10 @@ function Main(props) {
   return (
     <div className="main">
       {finish ? (
-        // <Link to={`/result`}>
-
-        // <Link to={`/result/${props.finalResult}`}>
-        <button onClick={onClickEnd}>결과보러가기</button>
+        <div onClick={onClickEnd}>
+          <Button sentence="결과보러가기" />
+        </div>
       ) : (
-        // <button>결과보러가기</button>
-        // </Link>
         <SelectCard
           question={nowQ}
           answer1={nowA1}

@@ -1,15 +1,60 @@
 .result {
+  height: 100%;
+}
+
+.realResult {
   padding: 20px;
   margin: 20px;
-  border: 1px solid;
-}
-.img {
+  background-color: #9a161f;
+  color: white;
   display: flex;
-  align-content: center;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-.img_img {
-  height: 1000px;
+
+.realResult:before,
+.realResult:after {
+  border-color: transparent;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  border-style: solid;
+  border-width: 0;
+  content: "";
+  height: 24px;
+  position: absolute;
+  width: 24px;
+}
+
+.realResult:before {
+  border-color: #9a161f;
+  border-right-width: 2px;
+  border-top-width: 2px;
+  right: -5px;
+  top: -5px;
+}
+
+.realResult:after {
+  border-bottom-width: 2px;
+  border-color: #9a161f;
+  border-left-width: 2px;
+  bottom: -5px;
+  left: -5px;
+}
+
+.toMain {
+  justify-content: center;
+}
+
+img {
   padding: 20px;
   margin: 20px;
+  max-width: 100%;
+  height: auto;
+}
+
+.to {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
 }

@@ -1,0 +1,53 @@
+HTML CSSResult Skip Results Iframe EDIT ON table.mytable {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border-left: 1px solid #f4efea;
+  margin: 20px 10px;
+}
+.resultTable {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+table.mytable thead th {
+  padding: 10px;
+  font-weight: bold;
+  border-top: 1px solid #f4efea;
+  border-right: 1px solid #f4efea;
+  border-bottom: 2px solid #9a161f;
+  background: #9a161f;
+  color: white;
+}
+table.mytable tbody th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-right: 1px solid #f4efea;
+  border-bottom: 1px solid #f4efea;
+  background: #f4efea;
+}
+table.mytable td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-right: 1px solid #f4efea;
+  border-bottom: 1px solid #f4efea;
+}
+.toMain {
+  margin: 20px;
+}
+button {
+  all: unset;
+  background-color: #9a161f;
+  color: white;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+}
+.myTable {
+  display: flex;
+  flex-direction: column;
+}

@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import "css/Start.css";
 import { Link } from "react-router-dom";
+import Button from "components/Button";
 function Start(props) {
   const [name, setName] = useState("");
 
   const handleName = (e) => {
     setName(e.target.value);
-    // debouncing, throttling
+    // debouncing, throttling 이거 사용하면 좋음
   };
 
   const handleClick = () => {
@@ -22,10 +23,7 @@ function Start(props) {
         break;
     }
   };
-  const handleOthers = () => {
-    props.handleOthers();
-    props.history.push("/others");
-  };
+
   const handleKeyPress = (e) => {
     //엔터키로 입력하기
     if (e.key === "Enter") {
@@ -35,9 +33,9 @@ function Start(props) {
 
   return (
     <div className="box">
-      <h1>도다지프로젝트</h1>
-      <p>개발 유형 검사</p>
-
+      <div>
+        <img className="dodaji" src="/dodajiproject.png" alt=""></img>
+      </div>
       <div className="start">
         <form>
           <input
@@ -47,21 +45,21 @@ function Start(props) {
             onKeyPress={handleKeyPress}
           ></input>
         </form>
-        <button onClick={handleClick}>시작하기</button>
+        <div onClick={handleClick}>
+          <Button sentence="시작하기" />
+        </div>
       </div>
+
       <div className="others">
-        {/* <Link to={`/others`}> */}
-        <button onClick={handleOthers}>다른사람결과보러가기</button>
-        {/* </Link> */}
+        <Link to={`/others`}>
+          <Button sentence="다른사람 결과 보러가기" />
+        </Link>
       </div>
     </div>
   );
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return (
-    { handleName: (name) => dispatch({ type: "setName", name: name }) },
-    { handleOthers: () => dispatch({ type: "others" }) }
-  );
+  return { handleName: (name) => dispatch({ type: "setName", name: name }) };
 };
 export default connect(null, mapDispatchToProps)(Start);

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import "css/Result.css";
-// import axios from "axios";
+import { Link } from "react-router-dom";
+
+import Button from "components/Button";
 
 const Result = ({ name, finalResult, realResult }) => {
   let result = realResult.find((data) => {
@@ -9,16 +10,23 @@ const Result = ({ name, finalResult, realResult }) => {
   });
 
   return (
-    <div>
-      <div className="result">
-        {name}의 결과는? {result.realResultDescription}
+    <div className="result">
+      <div className="realResult">
+        <div>
+          {name}의 결과는?
+          <br /> {result.realResultDescription}
+        </div>
       </div>
-      <div className="img">
-        <img
-          className="img_img"
-          src={"/" + result.realResultDescription + ".jpg"}
-          alt=""
-        />
+
+      <img src={"/" + result.realResultDescription + ".jpg"} alt="" />
+
+      <div className="to">
+        <Link to="/">
+          <Button sentence="메인화면으로"></Button>
+        </Link>
+        <Link to="/others">
+          <Button sentence="다른사람결과보러가기" />
+        </Link>
       </div>
     </div>
   );
