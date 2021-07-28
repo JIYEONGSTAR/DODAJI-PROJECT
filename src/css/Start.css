@@ -16,17 +16,27 @@
   box-shadow: 5px 5px 5px #aaa;
   transition: background-color 1s, height 1s;
   background-color: #f4efea;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .img {
   width: 225px;
   height: 300px;
+  text-align: center;
+  justify-content: center;
 }
 .others {
   text-decoration: none;
+  text-align: center;
+  justify-content: center;
 }
 
 .dodaji {
   width: 450px;
-  margin-left: -80px;
+  margin-left: -20px;
+  text-align: center;
+  justify-content: center;
 }

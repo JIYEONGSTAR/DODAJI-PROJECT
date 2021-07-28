@@ -21,6 +21,7 @@ function SelectCard(props) {
     },
   });
   const onClick = (e) => {
+    console.log(e.target.value);
     props.onClick(e.target.value, question.typeId);
   };
   const onBack = () => {
@@ -34,11 +35,11 @@ function SelectCard(props) {
       </div>
       <div className="questionBox">{question.questionName}</div>
       <div className="answerBox">
-        <div onClick={onClick}>
-          <Button value={answer1.resultId} sentence={answer1.answerName} />
+        <div onClick={onClick} >
+          <Button  sentence={answer1.answerName} value={answer1.resultId} />
         </div>
-        <div onClick={onClick}>
-          <Button value={answer2.resultId} sentence={answer2.answerName} />
+        <div onClick={onClick}  >
+          <Button sentence={answer2.answerName} value={answer2.resultId}/>
         </div>
       </div>
       <div className="backBox">

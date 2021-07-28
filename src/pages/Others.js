@@ -4,8 +4,6 @@ import "css/Others.css";
 import { Link } from "react-router-dom";
 import Button from "components/Button";
 const Others = ({ others, realResult }) => {
-  const list = others;
-
   return (
     <div className="resultTable">
       <div className="myTable">
@@ -17,21 +15,28 @@ const Others = ({ others, realResult }) => {
             </tr>
           </thead>
           <tbody>
-            {list.map((list) => (
+            {others.map((list) => (
               <tr>
                 <th scope="row">{list.personName}</th>
-                <th>
-                  {
+                <Link
+                  to={`/resultD/${
                     realResult.find(
                       (data) => data.realResultId === list.personResultId
                     ).realResultDescription
-                  }
-                </th>
+                  }`}
+                >
+                  <th>
+                    {
+                      realResult.find(
+                        (data) => data.realResultId === list.personResultId
+                      ).realResultDescription
+                    }
+                  </th>
+                </Link>
               </tr>
             ))}
           </tbody>
         </table>
-
         <div className="toMain">
           <Link to="/">
             <Button sentence="메인화면으로" />
